@@ -1,0 +1,51 @@
+
+CREATE database homework_database
+show databases;
+CREATE table `homework_database`.`phones` (
+id_phones` INT NOT NULL AUTO_INCREMENT,
+  `models_phones` VARCHAR(45) NOT NULL,
+  `manufacturers_phones` VARCHAR(45) NOT NULL,
+  `prices_phones` DECIMAL NULL,
+  `quantity_phones` INT NOT NULL,
+  PRIMARY KEY (`id_phones`));
+  
+  INSERT INTO `homework_database`.`phones` 
+  (`models_phones`, `manufacturers_phones`, `prices_phones`, `quantity_phones`) 
+VALUES 
+('Galaxy S22 Ultra', 'Samsung', 91575, 2),
+('Galaxy A03 4/64 Gb', 'Samsung', 7451, 100),
+('Galaxy A23 4/64 Gb', 'Samsung', 12395, 50),
+('Galaxy Note20 Ultra 12/256 Gb', 'Samsung', 52196, 1),
+('iPhone 11 128 Gb', 'Apple', 37453, 2),
+('iPhone 12 64 Gb', 'Apple', 46296, 15),
+('iPhone 13 128 Gb', 'Apple', 52544, 72),
+('Redmi Note 10 Pro 6/128 Gb', 'Xiaomi', 17566, 23),
+('Redmi 10 2022 4/64 Gb', 'Xiaomi', 11553, 2),
+('Redmi A1+ 2/32 Gb', 'Xiaomi', 5911, 88);
+
+SELECT models_phones, manufacturers_phones, prices_phones 
+FROM phones
+WHERE quantity_phones > 2;
+
+SELECT * FROM phones
+WHERE Manufacturer = "Samsung";
+
+SELECT models, manufacturers, quantity, prices, prices * quantity AS Total_price
+FROM phones
+WHERE prices* quantity > 100000 AND price * quantity < 145000;
+
+SELECT * FROM phones
+WHERE models
+LIKE "iPhone%";
+
+SELECT * FROM phones
+WHERE models
+LIKE "%Galaxy%"; 
+
+SELECT * FROM phones
+WHERE models
+RLIKE "[0-9]";
+
+SELECT * FROM phones
+WHERE models
+RLIKE "[8]";
